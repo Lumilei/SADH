@@ -1,0 +1,47 @@
+# 数据配置
+data:
+  data_dir: "datasets/handwritten/basied_missing"
+  n_views: 6
+
+# 模型配置
+model:
+  embed_dim: 128
+  hidden_dim: 128
+  dropout: 0.5
+
+# 训练配置
+training:
+  lr: 0.0005
+  epochs: 100
+  weight_decay: 1e-4
+  device: "cpu"  # "cpu" or "cuda"
+
+# 超图配置
+hypergraph:
+  # 实例-视图超边
+  use_instview: true
+  # 类别超边
+  use_category: true
+  # 低置信度超边
+  use_lowconf: false
+  lowconf_B: 50  # 难样本数量
+
+# 损失函数配置
+loss:
+  # 分类损失
+  use_cls: true
+  # 对比损失
+  use_contrastive: false
+  lambda_con: 0.1
+  tau: 0.07
+  # 重建损失
+  use_reconstruction: false
+  lambda_recon: 0.1
+
+# 实验配置
+experiment:
+  log_file: "experiment_log.txt"
+  results_file: "experiment_results.txt"
+  save_model: false
+  model_dir: "models/"
+  
